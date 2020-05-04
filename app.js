@@ -49,47 +49,11 @@ var conn = mysql.createConnection({
     //route
 
 
-    
-    app.get('/',function(req,res){
-        var testajax = req.body['TEST'];
-        var conn = mysql.createConnection({
-            host : 'localhost',
-            user : 'root',
-            password : '123456',
-            database : 'nodejs_login'
-            });
-        var sql = 'select username as TEST from users '
-        conn.query(sql,function(err,result){
-            console.log(result);
-            username = result;
-    
-      res.render('home',{username:username});
-    })
-       
-    });
-
-    
-    app.get('/test2',function(req,res){
-    
-        var testajax = req.body['TEST'];
-        var conn = mysql.createConnection({
-            host : 'localhost',
-            user : 'root',
-            password : '123456',
-            database : 'nodejs_login'
-            });
-        var sql = 'select *  from users'
-        conn.query(sql,function(err,result){
-            console.log(result);
-            username = result;
-        
-        res.render('test2',{username:username});
-    })
-      });
+  
       
       
       
-      app.get('/test3',function(req,res){
+      app.get('/',function(req,res){
         var conn = mysql.createConnection({
             host : 'localhost',
             user : 'root',
