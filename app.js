@@ -110,22 +110,54 @@ var conn = mysql.createConnection({
         async function run() {
           const res = await qrcode.toDataURL("http://localhost:8080/"+test)
         
-          fs.writeFileSync('./views/test3.ejs', `<!DOCTYPE html>
+          fs.writeFileSync('./views/test3.ejs', `<!DOCTYPE HTML>
+          <!--
+              Caminar by TEMPLATED
+              templated.co @templatedco
+              Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+          -->
           <html>
-          <head>
-          <title>home3</title>
+              <head>
+                  <title>一號會議室</title>
+                  <meta charset="utf-8" />
+                  <meta name="viewport" content="width=device-width, initial-scale=1" />
+                  <link rel="stylesheet" href="/css/test3.css" />
+              </head>
+              <body>
           
-          </SCRIPT>
-          </head>
-          <body>
-              <div><img src="${res}"></div>
-            
-          <form>
+                  <!-- Header -->
+                      <header id="header">
+                          <div class="logo"><a href="#">我雞雞超大 <span>現在進行的會議</span></a></div>
+                      </header>
           
+                  <!-- Main -->
+                      <section id="main">
+                          <div class="inner">
           
+                          <!-- One -->
+                              <section id="one" class="wrapper style1">
           
-          </form>
-          </body>
+                                  <div class="image fit flush">
+                                      <img src="${res}">
+                                  </div>
+                                  
+                                  <div class="content">
+                                      
+                                  </div>
+                              </section>
+          
+                          
+                          </div>
+                      </footer>
+          
+                  <!-- Scripts -->
+                      <script src="/js/jquery.min.js"></script>
+                      <script src="/js/jquery.poptrox.min.js"></script>
+                      <script src="/js/skel.min.js"></script>
+                      <script src="/js/util.js"></script>
+                      <script src="/js/main.js"></script>
+          
+              </body>
           </html>`);
           console.log('Wrote to ./views/test3.ejs');
         }
