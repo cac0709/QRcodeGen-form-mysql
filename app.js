@@ -5,6 +5,9 @@ var app = express();
 var port = process.env.PORT || 8080;
 var path = require('path');
 var mysql = require('mysql');
+
+
+
 var conn = mysql.createConnection({
     host : 'localhost',
     user : 'root',
@@ -44,9 +47,93 @@ var conn = mysql.createConnection({
 
 
     //route
+
+
+    
     app.get('/',function(req,res){
-        res.render('home');
+        var testajax = req.body['TEST'];
+        var conn = mysql.createConnection({
+            host : 'localhost',
+            user : 'root',
+            password : '123456',
+            database : 'nodejs_login'
+            });
+        var sql = 'select username as TEST from users '
+        conn.query(sql,function(err,result){
+            console.log(result);
+            username = result;
+    
+      res.render('home',{username:username});
+    })
+       
     });
+
+    
+    app.get('/test2',function(req,res){
+    
+        var testajax = req.body['TEST'];
+        var conn = mysql.createConnection({
+            host : 'localhost',
+            user : 'root',
+            password : '123456',
+            database : 'nodejs_login'
+            });
+        var sql = 'select *  from users'
+        conn.query(sql,function(err,result){
+            console.log(result);
+            username = result;
+        
+        res.render('test2',{username:username});
+    })
+      });
+      
+      
+      
+      app.get('/test3',function(req,res){
+        var conn = mysql.createConnection({
+            host : 'localhost',
+            user : 'root',
+            password : '123456',
+            database : 'nodejs_login'
+            });
+        var sql = 'select * from users '
+        conn.query(sql,function(err,result){
+            console.log(result);
+            //給資料庫撈出來的資料定義
+            test = result[0].password;
+       
+
+        const fs = require('fs');
+        const qrcode = require('qrcode');
+        run().catch(error => console.error(error.stack));
+
+        async function run() {
+          const res = await qrcode.toDataURL("http://localhost:8080/"+test)
+        
+          fs.writeFileSync('./views/test3.ejs', `<!DOCTYPE html>
+          <html>
+          <head>
+          <title>home3</title>
+          
+          </SCRIPT>
+          </head>
+          <body>
+              <div><img src="${res}"></div>
+            
+          <form>
+          
+          
+          
+          </form>
+          </body>
+          </html>`);
+          console.log('Wrote to ./views/test3.ejs');
+        }
+    })  
+    res.render('test3');    
+})
+      
+    
 
     
         

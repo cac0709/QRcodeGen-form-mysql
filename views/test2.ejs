@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery-qrcode：前端生成 QR CODE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/jquery-qrcode-0.17.0.min.js"></script>
+    <style>
+        .block>div {
+            float: left;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><%=username[0].username%></h1>
+    <div class="block">
+        <div id="jquery-qrcode-canvas"></div>
+        <div id="jquery-qrcode-image"></div>
+        <div id="jquery-qrcode-div"></div>
+    </div>
+
+    <script>
+        $("#jquery-qrcode-canvas").qrcode({
+            render: 'canvas',
+            size: 250,
+            text: 'https://mnya.tw/'
+        });
+
+        $("#jquery-qrcode-image").qrcode({
+            render: 'image',
+            size: 250,
+            text: 'https://mnya.tw/'
+        });
+
+        $("#jquery-qrcode-div").qrcode({
+            render: 'div',
+            size: 250,
+            text: req.body.h1
+        });
+    </script>
+</body>
+
+</html>
