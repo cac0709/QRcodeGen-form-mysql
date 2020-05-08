@@ -1628,8 +1628,8 @@
 		}
 
 	body {
-		background-color: #fff;
-		color: rgba(0, 0, 0, 0.5);
+		background-color:#82FF82;
+		color: #82FF82;
 	}
 
 	body, input, select, textarea {
@@ -1681,7 +1681,7 @@
 				left: 0;
 				width: 50%;
 				height: 1px;
-				background-color: rgba(0, 0, 0, 0.125);
+				background-color: #82FF82;
 			}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -1845,7 +1845,7 @@
 					left: 0;
 					width: 10%;
 					height: 1px;
-					background-color: rgba(0, 0, 0, 0.125);
+					background-color:#82FF82;
 				}
 
 			.box header p {
@@ -2905,7 +2905,7 @@
 /* Header */
 
 	body {
-		background-color: #1e1f23;
+		background-color: #00EC00;
 		padding-top: 8rem;
 	}
 
@@ -2951,7 +2951,7 @@
 			}
 
 	#header {
-		color: #a6a6a6;
+		color: #000000;
 		cursor: default;
 		position: relative;
 		text-align: center;
@@ -2964,20 +2964,35 @@
 		}
 
 			#header > .logo a {
-				font-size: 4rem;
+				font-size: 6rem;
 				font-weight: 700;
-				color: #FFF;
+				color: #000000;
 				text-decoration: none;
-				line-height: 1rem;
+				line-height: 2rem;
+				
 			}
 
 			#header > .logo span {
 				font-weight: 300;
-				font-size: 1rem;
+				font-size: 2rem;
 				display: block;
-				color: rgba(255, 255, 255, 0.65);
+				color: #000000;
+				line-height: 2rem;
 			}
-
+			#time{
+				font-weight: 300;
+				font-size: 4rem;
+				display: block;
+				color: #000000;
+				line-height: 5rem;
+			}
+			#h2{
+				font-weight: 300;
+				font-size: 3rem;
+				display: block;
+				color: #000000;
+			}
+			
 	@media screen and (max-width: 1280px) {
 
 		body {
@@ -3051,7 +3066,7 @@
 				left: 0;
 				width: 10%;
 				height: 1px;
-				background-color: rgba(0, 0, 0, 0.125);
+				background-color: rgba#82FF82;
 			}
 
 		.wrapper > header p {

@@ -60,11 +60,17 @@ var conn = mysql.createConnection({
             password : '123456',
             database : 'nodejs_login'
             });
-        var sql = 'select * from users '
+        var sql = 'select * from reservation'//取qrcode網址
+        var sql2 = 'select * from reservation'//取會議名稱
+       
+        conn.query(sql2,function(err,result2){
+            console.log(result2)
+            meetingname = result2;
+     
         conn.query(sql,function(err,result){
             console.log(result);
             //給資料庫撈出來的資料定義
-            test = result[0].password;
+            test = result[0].meetingroomcode;
        
 
         const fs = require('fs');
@@ -72,14 +78,10 @@ var conn = mysql.createConnection({
         run().catch(error => console.error(error.stack));
 
         async function run() {
-          const res = await qrcode.toDataURL("http://localhost:8080/"+test)
+          const res = await qrcode.toDataURL("sign in"+test)
         
           fs.writeFileSync('./views/test3.ejs', `<!DOCTYPE HTML>
-          <!--
-              Caminar by TEMPLATED
-              templated.co @templatedco
-              Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-          -->
+       
           <html>
               <head>
                   <title>一號會議室</title>
@@ -87,14 +89,17 @@ var conn = mysql.createConnection({
                   <meta name="viewport" content="width=device-width, initial-scale=1" />
                   <link rel="stylesheet" href="/css/test3.css" />
               </head>
-              <body>
+              <body onload="showTime()">
           
                   <!-- Header -->
                       <header id="header">
-                          <div class="logo"><a href="#">我雞雞超大 <span>現在進行的會議</span></a></div>
+                          <div class="logo"><a href="#"><%= meetingname[0].meetingname %> <span>現在進行的會議</span></div>
+                          <h2>現在時間</h2>
+                          <div id ="time"></div>
                       </header>
-          
+                      
                   <!-- Main -->
+               
                       <section id="main">
                           <div class="inner">
           
@@ -102,7 +107,7 @@ var conn = mysql.createConnection({
                               <section id="one" class="wrapper style1">
           
                                   <div class="image fit flush">
-                                      <img src="${res}">
+                                  <img src="${res}">
                                   </div>
                                   
                                   <div class="content">
@@ -120,13 +125,26 @@ var conn = mysql.createConnection({
                       <script src="/js/skel.min.js"></script>
                       <script src="/js/util.js"></script>
                       <script src="/js/main.js"></script>
+                      <script>function showTime(){
+                          var today =new Date();
+                          var h = today.getHours();
+                          var m = today.getMinutes();
+                          var s = today.getSeconds();
+                          document.getElementById('time').innerHTML = h+":"+m+":"+s;
+                          setTimeout(function(){showTime()},500);
+
+                          
+                      }</script>
           
               </body>
           </html>`);
           console.log('Wrote to ./views/test3.ejs');
+          
+          
         }
+        res.render('test3',{meetingname:meetingname});
     })  
-    res.render('test3');    
+})       
 })
       
     

@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-          <!--
-              Caminar by TEMPLATED
-              templated.co @templatedco
-              Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-          -->
+       
           <html>
               <head>
                   <title>一號會議室</title>
@@ -11,14 +7,17 @@
                   <meta name="viewport" content="width=device-width, initial-scale=1" />
                   <link rel="stylesheet" href="/css/test3.css" />
               </head>
-              <body>
+              <body onload="showTime()">
           
                   <!-- Header -->
                       <header id="header">
-                          <div class="logo"><a href="#">我雞雞超大 <span>現在進行的會議</span></a></div>
+                          <div class="logo"><a href="#"><%= meetingname[0].meetingname %> <span>現在進行的會議</span></div>
+                          <h2>現在時間</h2>
+                          <div id ="time"></div>
                       </header>
-          
+                      
                   <!-- Main -->
+               
                       <section id="main">
                           <div class="inner">
           
@@ -26,7 +25,7 @@
                               <section id="one" class="wrapper style1">
           
                                   <div class="image fit flush">
-                                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAAOGSURBVO3BQY4jSQIDQWdA//+ybx3mwFMAQko13bM0iz+Y+cdhphxmymGmHGbKYaYcZsphphxmymGmHGbKYaYcZsphphxmymGmvHgoCb9JpSWhqdwk4R0qN0loKi0Jv0nlicNMOcyUw0x58WEqn5SEG5WWhKZyo/KEyjtUPikJn3SYKYeZcpgpL74sCe9QeUKlJaGptCR8kso7kvAOlW86zJTDTDnMlBd/uSQ0labSktBUbpLw/+QwUw4z5TBTXvzHJKGpNJWbJLxD5b/kMFMOM+UwU158mcrfTOWbVP4kh5lymCmHmfLiw5Lwb1JpSWgqLQlNpSWhqbQkNJWbJPzJDjPlMFMOMyX+4C+WhKbyTUloKv8lh5lymCmHmfLioSQ0lXckoam0JDyRhBuVloQblZaEb1K5SUJTeeIwUw4z5TBT4g8eSMKNyjcl4UblHUl4QuUdSbhRaUloKp90mCmHmXKYKfEHDyShqbQkNJWbJNyoPJGEpvKOJDSVloSm0pLwhMo3HWbKYaYcZkr8wb8oCTcqLQk3Ku9IQlNpSWgqLQlNpSXhHSotCTcqn3SYKYeZcpgpLx5KQlNpSXiHSkvCE0loKjdJeCIJ71BpSXhHEprKE4eZcpgph5ny4sOS0FRaEm6S0FRaEprKEyotCTdJuFF5RxKayk0SmsonHWbKYaYcZsqLh1RukvAOlZaEptKS0FSeULlJQlNpSWgqNyotCTcq33SYKYeZcpgp8Qe/KAlN5Ykk3KjcJOFG5ZOS8Ekqn3SYKYeZcpgpLx5KwjtUWhKeULlJwjtUWhL+JCrfdJgph5lymCkvHlJ5QuWJJNyo3CThHSotCU3lHUloKi0Jv+kwUw4z5TBTXjyUhN+k8o4k3Kh8UxKayk0SmspvOsyUw0w5zJQXH6bySUm4UblJwhMqT6g8kYQblU86zJTDTDnMlBdfloR3qLwjCU3lRuUmCTcqN0l4QqUloam0JDSVJw4z5TBTDjPlxV9OpSXhJgnvULlRaUl4h0pLwk0SvukwUw4z5TBTXvyfUblJQkvCjconqdwkoal80mGmHGbKYaa8+DKV36TSktCS0FQ+SaUl4SYJf5LDTDnMlMNMefFhSfhNSWgq70jCb1J5RxJuktBUnjjMlMNMOcyU+IOZfxxmymGmHGbKYaYcZsphphxmymGmHGbKYaYcZsphphxmymGmHGbK/wBkdY4Im79kgAAAAABJRU5ErkJggg==">
+                                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAAAklEQVR4AewaftIAAALDSURBVO3BQW7kQAwEwUxC//9yrY88NSBIM2sTjDA/WGMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFGKdYoxRrl4iGVb0rCiUqXhCdUvikJTxRrlGKNUqxRLl6WhDepnKicqJwk4Y4kvEnlTcUapVijFGuUiw9TuSMJdyShU+mS0Kl0Kl0S7lC5IwmfVKxRijVKsUa5GE6lS0KnMkmxRinWKMUa5eKPU+mS0Kl0KpMVa5RijVKsUS4+LAmflIRO5Y4kPJGE36RYoxRrlGKNcvEylW9S6ZLQqXRJ6FS6JJyo/GbFGqVYoxRrFPODwVS6JExWrFGKNUqxRrl4SKVLQqfSJaFT6ZLQqXRJOFHpknCi0iXhDpUuCScqXRLeVKxRijVKsUYxP3hA5YkkdCpdEu5QuSMJnUqXhDtUnkjCE8UapVijFGuUi4eS0Kl0SXhC5SQJb0pCp9IloVP5TYo1SrFGKdYoFw+pPKFykoROpVPpknCi0qmcJKFTOUnCHSpvKtYoxRqlWKNcPJSETuVEpUtCp9KpfFISOpVO5SQJv0mxRinWKMUa5eJlSThJwkkS7lA5UfkklS4J/1OxRinWKMUaxfzgAZVvSsKbVLokdCpPJKFTOUnCE8UapVijFGuUi5cl4U0qb1LpknCShDcloVN5U7FGKdYoxRrl4sNU7kjCHSonSeiS0KmcJOFNKp9UrFGKNUqxRrn445LQqZyodEnoVDqVO5LQqZwk4U3FGqVYoxRrlIs/TqVLQqfSJeGOJHQqdyThRKVLwhPFGqVYoxRrlIsPS8InJeFNSbgjCZ1Kl4ROpUvCm4o1SrFGKdYoFy9T+SaVLgl3qJwkoUtCp9Il4Q6VLglPFGuUYo1SrFHMD9YYxRqlWKMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFG+Qdo/w4JJQAk7gAAAABJRU5ErkJggg==">
                                   </div>
                                   
                                   <div class="content">
@@ -44,6 +43,16 @@
                       <script src="/js/skel.min.js"></script>
                       <script src="/js/util.js"></script>
                       <script src="/js/main.js"></script>
+                      <script>function showTime(){
+                          var today =new Date();
+                          var h = today.getHours();
+                          var m = today.getMinutes();
+                          var s = today.getSeconds();
+                          document.getElementById('time').innerHTML = h+":"+m+":"+s;
+                          setTimeout(function(){showTime()},500);
+
+                          
+                      }</script>
           
               </body>
           </html>
