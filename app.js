@@ -93,7 +93,7 @@ var conn = mysql.createConnection({
           
                   <!-- Header -->
                       <header id="header">
-                          <div class="logo"><a href="#"><%= meetingname[0].meetingname %> <span>現在進行的會議</span></div>
+                          <div class="logo"><a href="#"><%= meetingname[0].meetingname %> <span>現在進行的會議</span></a></div>
                           <h2>現在時間</h2>
                           <div id ="time"></div>
                       </header>

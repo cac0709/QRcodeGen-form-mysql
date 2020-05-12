@@ -2416,9 +2416,10 @@
 		}
 
 			.image.fit img {
-				width: 75%;
+				width: 70%;
 				margin: auto;
 				display: block;
+				padding-top:110px;
 			}
 
 		.image.main {
@@ -2959,16 +2960,17 @@
 	}
 
 		#header > .logo {
-			margin: 0 0 4rem 0;
-			padding: 0;
+			margin: 0 0 2rem 0;
+			padding: 10;
 		}
 
 			#header > .logo a {
-				font-size: 6rem;
+				font-size: 8rem;
 				font-weight: 700;
 				color: #000000;
 				text-decoration: none;
 				line-height: 2rem;
+				margin:auto;
 				
 			}
 
@@ -2978,11 +2980,11 @@
 				display: block;
 				color: #000000;
 				line-height: 2rem;
+				margin:auto;
 			}
 			#time{
 				font-weight: 300;
 				font-size: 4rem;
-				display: block;
 				color: #000000;
 				line-height: 5rem;
 			}
@@ -2991,6 +2993,7 @@
 				font-size: 3rem;
 				display: block;
 				color: #000000;
+				margin:auto;
 			}
 			
 	@media screen and (max-width: 1280px) {
@@ -3019,18 +3022,18 @@
 /* Main */
 
 	#main > .inner {
-		margin: 0 auto;
-		width: 80rem;
-		max-width: 90%;
-		margin-bottom: 2rem;
+		margin: auto;
+		width: 45rem;
+		max-width: 100%;
 		background: rgba(255, 255, 255, 0.95);
 		-webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
 		-moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
 		box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
-		border-radius: 4px;
+		border-radius: 150px;
+		
 	}
 
-	@media screen and (max-width: 980px) {
+	@media screen and (max-width: 900px) {
 
 		#main .image {
 			width: 100%;
@@ -3054,7 +3057,7 @@
 
 		.wrapper > header h2 {
 			position: relative;
-			padding-bottom: .75rem;
+			padding-bottom: 75rem;
 		}
 
 			.wrapper > header h2:after {
