@@ -96,28 +96,25 @@ var conn = mysql.createConnection({
                           <div class="logo"><a href="#"><%= meetingname[0].meetingname %> <span>現在進行的會議</span></a></div>
                           <h2>現在時間</h2>
                           <div id ="time"></div>
-                      </header>
-                      
-                  <!-- Main -->
-               
-                      <section id="main">
+                          <section id="main">
                           <div class="inner">
           
                           <!-- One -->
                               <section id="one" class="wrapper style1">
-          
-                                  <div class="image fit flush">
-                                  <img src="${res}">
-                                  </div>
-                                  
+                                <div class="image fit flush">
+                                <img src="${res}">
+                                    </div>
                                   <div class="content">
                                       
                                   </div>
                               </section>
           
-                          
-                          </div>
-                      </footer>
+                      
+                      </header>
+                      
+                  
+                      
+               
           
                   <!-- Scripts -->
                       <script src="/js/jquery.min.js"></script>

@@ -11,31 +11,28 @@
           
                   <!-- Header -->
                       <header id="header">
-                          <div class="logo"><a href="#"><%= meetingname[0].meetingname %> <span>現在進行的會議</span></div>
+                          <div class="logo"><a href="#"><%= meetingname[0].meetingname %> <span>現在進行的會議</span></a></div>
                           <h2>現在時間</h2>
                           <div id ="time"></div>
-                      </header>
-                      
-                  <!-- Main -->
-               
-                      <section id="main">
+                          <section id="main">
                           <div class="inner">
           
                           <!-- One -->
                               <section id="one" class="wrapper style1">
-          
-                                  <div class="image fit flush">
-                                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAAAklEQVR4AewaftIAAALDSURBVO3BQW7kQAwEwUxC//9yrY88NSBIM2sTjDA/WGMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFGKdYoxRrl4iGVb0rCiUqXhCdUvikJTxRrlGKNUqxRLl6WhDepnKicqJwk4Y4kvEnlTcUapVijFGuUiw9TuSMJdyShU+mS0Kl0Kl0S7lC5IwmfVKxRijVKsUa5GE6lS0KnMkmxRinWKMUa5eKPU+mS0Kl0KpMVa5RijVKsUS4+LAmflIRO5Y4kPJGE36RYoxRrlGKNcvEylW9S6ZLQqXRJ6FS6JJyo/GbFGqVYoxRrFPODwVS6JExWrFGKNUqxRrl4SKVLQqfSJaFT6ZLQqXRJOFHpknCi0iXhDpUuCScqXRLeVKxRijVKsUYxP3hA5YkkdCpdEu5QuSMJnUqXhDtUnkjCE8UapVijFGuUi4eS0Kl0SXhC5SQJb0pCp9IloVP5TYo1SrFGKdYoFw+pPKFykoROpVPpknCi0qmcJKFTOUnCHSpvKtYoxRqlWKNcPJSETuVEpUtCp9KpfFISOpVO5SQJv0mxRinWKMUa5eJlSThJwkkS7lA5UfkklS4J/1OxRinWKMUaxfzgAZVvSsKbVLokdCpPJKFTOUnCE8UapVijFGuUi5cl4U0qb1LpknCShDcloVN5U7FGKdYoxRrl4sNU7kjCHSonSeiS0KmcJOFNKp9UrFGKNUqxRrn445LQqZyodEnoVDqVO5LQqZwk4U3FGqVYoxRrlIs/TqVLQqfSJeGOJHQqdyThRKVLwhPFGqVYoxRrlIsPS8InJeFNSbgjCZ1Kl4ROpUvCm4o1SrFGKdYoFy9T+SaVLgl3qJwkoUtCp9Il4Q6VLglPFGuUYo1SrFHMD9YYxRqlWKMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFG+Qdo/w4JJQAk7gAAAABJRU5ErkJggg==">
-                                  </div>
-                                  
+                                <div class="image fit flush">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAAAklEQVR4AewaftIAAALDSURBVO3BQW7kQAwEwUxC//9yrY88NSBIM2sTjDA/WGMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFGKdYoxRrl4iGVb0rCiUqXhCdUvikJTxRrlGKNUqxRLl6WhDepnKicqJwk4Y4kvEnlTcUapVijFGuUiw9TuSMJdyShU+mS0Kl0Kl0S7lC5IwmfVKxRijVKsUa5GE6lS0KnMkmxRinWKMUa5eKPU+mS0Kl0KpMVa5RijVKsUS4+LAmflIRO5Y4kPJGE36RYoxRrlGKNcvEylW9S6ZLQqXRJ6FS6JJyo/GbFGqVYoxRrFPODwVS6JExWrFGKNUqxRrl4SKVLQqfSJaFT6ZLQqXRJOFHpknCi0iXhDpUuCScqXRLeVKxRijVKsUYxP3hA5YkkdCpdEu5QuSMJnUqXhDtUnkjCE8UapVijFGuUi4eS0Kl0SXhC5SQJb0pCp9IloVP5TYo1SrFGKdYoFw+pPKFykoROpVPpknCi0qmcJKFTOUnCHSpvKtYoxRqlWKNcPJSETuVEpUtCp9KpfFISOpVO5SQJv0mxRinWKMUa5eJlSThJwkkS7lA5UfkklS4J/1OxRinWKMUaxfzgAZVvSsKbVLokdCpPJKFTOUnCE8UapVijFGuUi5cl4U0qb1LpknCShDcloVN5U7FGKdYoxRrl4sNU7kjCHSonSeiS0KmcJOFNKp9UrFGKNUqxRrn445LQqZyodEnoVDqVO5LQqZwk4U3FGqVYoxRrlIs/TqVLQqfSJeGOJHQqdyThRKVLwhPFGqVYoxRrlIsPS8InJeFNSbgjCZ1Kl4ROpUvCm4o1SrFGKdYoFy9T+SaVLgl3qJwkoUtCp9Il4Q6VLglPFGuUYo1SrFHMD9YYxRqlWKMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFG+Qdo/w4JJQAk7gAAAABJRU5ErkJggg==">
+                                    </div>
                                   <div class="content">
                                       
                                   </div>
                               </section>
           
-                          
-                          </div>
-                      </footer>
+                      
+                      </header>
+                      
+                  
+                      
+               
           
                   <!-- Scripts -->
                       <script src="/js/jquery.min.js"></script>
