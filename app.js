@@ -60,7 +60,7 @@ var conn = mysql.createConnection({
             password : '123456',
             database : 'nodejs_login'
             });
-        var sql = 'select * from reservation '//取qrcode網址
+        var sql = 'select meetingroomcode from reservation where starttime = CURRENT_TIME() '//取qrcode網址
         var sql2 = 'select * from reservation where starttime = CURRENT_TIME()'//取會議名稱
         var sqlmonday = "SELECT * FROM nodejs_login.reservation where opendate = subdate(curdate(),date_format(curdate(),'%w')-1) order by starttime asc;"
         var sqltwosday = "SELECT * FROM nodejs_login.reservation where opendate = subdate(curdate(),date_format(curdate(),'%w')-2) order by starttime asc ;"
@@ -76,7 +76,7 @@ var conn = mysql.createConnection({
      
         conn.query(sql,function(err,result){
             console.log(result);
-            //給資料庫撈出來的資料定義
+            //給資料庫撈出來的資料定義給qrcode
             test = result;
 
             conn.query(sqlmonday,function(err,resultmon){
@@ -163,7 +163,7 @@ var conn = mysql.createConnection({
                           <td>7:00-8:00</td>
                           <td><%=meetingnamemonday[0].meetingname %></td>
                           <td><%=meetingnametwo[0] %>  </td>
-                          <td><%=meetingnamethird[0].meetingname %>  </td>
+                          <td></td>
                           <td></td>
                           <td></td>
                       </tr>
