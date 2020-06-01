@@ -11,7 +11,8 @@
           
                   <!-- Header -->
                       <header id="header">
-                          <div class="logo"><a href="#"><%= meetingname[0].meetingname %> <span>現在進行的會議</span></a></div>
+                       
+                          <div class="logo"><a href="#"><%= meetingname.meetingname %></a></div>
                           <h2>現在時間</h2>
                           <div id ="time"></div>
                           <section id="main">
@@ -20,7 +21,7 @@
                           <!-- One -->
                               <section id="one" class="wrapper style1">
                                 <div class="image fit flush">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAAAklEQVR4AewaftIAAALDSURBVO3BQW7kQAwEwUxC//9yrY88NSBIM2sTjDA/WGMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFGKdYoxRrl4iGVb0rCiUqXhCdUvikJTxRrlGKNUqxRLl6WhDepnKicqJwk4Y4kvEnlTcUapVijFGuUiw9TuSMJdyShU+mS0Kl0Kl0S7lC5IwmfVKxRijVKsUa5GE6lS0KnMkmxRinWKMUa5eKPU+mS0Kl0KpMVa5RijVKsUS4+LAmflIRO5Y4kPJGE36RYoxRrlGKNcvEylW9S6ZLQqXRJ6FS6JJyo/GbFGqVYoxRrFPODwVS6JExWrFGKNUqxRrl4SKVLQqfSJaFT6ZLQqXRJOFHpknCi0iXhDpUuCScqXRLeVKxRijVKsUYxP3hA5YkkdCpdEu5QuSMJnUqXhDtUnkjCE8UapVijFGuUi4eS0Kl0SXhC5SQJb0pCp9IloVP5TYo1SrFGKdYoFw+pPKFykoROpVPpknCi0qmcJKFTOUnCHSpvKtYoxRqlWKNcPJSETuVEpUtCp9KpfFISOpVO5SQJv0mxRinWKMUa5eJlSThJwkkS7lA5UfkklS4J/1OxRinWKMUaxfzgAZVvSsKbVLokdCpPJKFTOUnCE8UapVijFGuUi5cl4U0qb1LpknCShDcloVN5U7FGKdYoxRrl4sNU7kjCHSonSeiS0KmcJOFNKp9UrFGKNUqxRrn445LQqZyodEnoVDqVO5LQqZwk4U3FGqVYoxRrlIs/TqVLQqfSJeGOJHQqdyThRKVLwhPFGqVYoxRrlIsPS8InJeFNSbgjCZ1Kl4ROpUvCm4o1SrFGKdYoFy9T+SaVLgl3qJwkoUtCp9Il4Q6VLglPFGuUYo1SrFHMD9YYxRqlWKMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFG+Qdo/w4JJQAk7gAAAABJRU5ErkJggg==">
+                                <img src="data:image/png;base64,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">
                                     </div>
                                   <div class="content">
                                       
@@ -29,8 +30,90 @@
           
                       
                       </header>
-                      
-                  
+                      <div id="sc">
+                      <table BORDER="1" align=center style="width:1500px;height:1000px;color:black;font-size:40px;font-family:DFKai-sb;">
+
+                      <tr>
+                          <td>時間/星期</td>
+                          <td>星期一</td>
+                          <td>星期二</td>
+                          <td>星期三</td>
+                          <td>星期四</td>
+                          <td>星期五</td>
+                      </tr>
+                      <tr>
+                          <td>7:00-8:00</td>
+                          <td><%=meetingnamemonday[0].meetingname %></td>
+                          <td><%=meetingnametwo[0] %>  </td>
+                          <td><%=meetingnamethird[0].meetingname %>  </td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>8:00-9:00</td>
+                          <td><%=meetingnamemonday[1].meetingname %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>9:00-10:00</td>
+                          <td><%= meetingnamemonday[2]%></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>10:00-11:00</td>
+                          <td><%= meetingnamemonday[3]%> </td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>11:00-12:00</td>
+                          <td><%= meetingnamemonday[4]%></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>13:00-14:00</td>
+                          <td><%= meetingnamemonday[5]%></td>
+                          <td></td>
+                          <td><%= realtest[0].meetingname%></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                          <td>14:00-15:00</td>
+                          <td><%= meetingnamemonday[6]%></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                      <td>15:00-16:00</td>
+                      <td><%= meetingnamemonday[7]%></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                     <tr>
+                          <td>17:00-18:00</td>
+                          <td><%= meetingnamemonday[8]%></td>
+                          <td>  </td>
+                          <td>  </td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      </table>
+                    </div>
                       
                
           
