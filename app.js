@@ -60,32 +60,41 @@ var conn = mysql.createConnection({
             password : '123456',
             database : 'nodejs_login'
             });
-        var sql = 'select meetingroomcode from reservation where starttime = CURRENT_TIME() '//取qrcode網址
-        var sql2 = 'select * from reservation where starttime = CURRENT_TIME()'//取會議名稱
+        var sql = 'select meetingroomcode from reservation where starttime = "14:00"'//取qrcode網址
+        var sql2 = 'select * from reservation where starttime = "14:00"'//取會議名稱
         var sqlmonday = "SELECT * FROM nodejs_login.reservation where opendate = subdate(curdate(),date_format(curdate(),'%w')-1) order by starttime asc;"
         var sqltwosday = "SELECT * FROM nodejs_login.reservation where opendate = subdate(curdate(),date_format(curdate(),'%w')-2) order by starttime asc ;"
         var sqlthird = "SELECT * FROM nodejs_login.reservation where opendate = subdate(curdate(),date_format(curdate(),'%w')-3) order by starttime asc;"
         var sqlforthday = "SELECT * FROM nodejs_login.reservation where opendate = subdate(curdate(),date_format(curdate(),'%w')-4) order by starttime asc;"
         var sqlfriday = "SELECT * FROM nodejs_login.reservation where opendate = subdate(curdate(),date_format(curdate(),'%w')-5) order by starttime asc;"
-        var sqlfortest = 'Select * from reservation where dayofweek(opendate)=4;'
+        var sqlfortest = 'Select * from reservation where dayofweek(opendate)=5;'
        
 
         conn.query(sql2,function(err,result2){
             console.log(result2)
-            meetingname = result2;
+            meetingname = result2[0].meetingname;
      
         conn.query(sql,function(err,result){
             console.log(result);
             //給資料庫撈出來的資料定義給qrcode
-            test = result;
+            test = result[0].meetingroomcode;
 
             conn.query(sqlmonday,function(err,resultmon){
                 console.log("星期一"+resultmon)
                 meetingnamemonday = resultmon;
+                for (i = 0; i < meetingnamemonday.length; i++) {
+
+                    if (meetingnamemonday[i].meetingname == null) {
+                        meetingnamemonday[i].meetingname = ''
+                    }
+                   
+                  }
+               
         
                 conn.query(sqltwosday,function(err,resulttwo){
                     console.log("星期二"+resulttwo)
                     meetingnametwo = resulttwo;
+                   
 
                     conn.query(sqlthird,function(err,resultthird){
                         console.log("星期三"+resultthird)
@@ -112,10 +121,9 @@ var conn = mysql.createConnection({
         const fs = require('fs');
         const qrcode = require('qrcode');
         run().catch(error => console.error(error.stack));
-
-        async function run() {
-          const res = await qrcode.toDataURL("sign in"+test)
         
+        async function run() {
+          const res = await qrcode.toDataURL(test)        
           fs.writeFileSync('./views/test3.ejs', `<!DOCTYPE HTML>
        
           <html>
@@ -130,7 +138,7 @@ var conn = mysql.createConnection({
                   <!-- Header -->
                       <header id="header">
                        
-                          <div class="logo"><a href="#"><%= meetingname.meetingname %></a></div>
+                          <div class="logo"><a href="#">重要測試</a></div>
                           <h2>現在時間</h2>
                           <div id ="time"></div>
                           <section id="main">
@@ -149,7 +157,7 @@ var conn = mysql.createConnection({
                       
                       </header>
                       <div id="sc">
-                      <table BORDER="1" align=center style="width:1500px;height:1000px;color:black;font-size:40px;font-family:DFKai-sb;">
+                      <table BORDER="1" align=center style="width:850px;height:400px;color:black;font-size:30px;font-family:DFKai-sb;">
 
                       <tr>
                           <td>時間/星期</td>
@@ -161,7 +169,7 @@ var conn = mysql.createConnection({
                       </tr>
                       <tr>
                           <td>7:00-8:00</td>
-                          <td><%=meetingnamemonday[0].meetingname %></td>
+                          <td><%=meetingnamemonday[0] %></td>
                           <td><%=meetingnametwo[0] %>  </td>
                           <td></td>
                           <td></td>
@@ -203,7 +211,7 @@ var conn = mysql.createConnection({
                           <td>13:00-14:00</td>
                           <td><%= meetingnamemonday[5]%></td>
                           <td></td>
-                          <td><%= realtest[0].meetingname%></td>
+                          <td></td>
                           <td></td>
                           <td></td>
                       </tr>
@@ -211,7 +219,7 @@ var conn = mysql.createConnection({
                           <td><%= meetingnamemonday[6]%></td>
                           <td></td>
                           <td></td>
-                          <td></td>
+                          <td><%= realtest[0].meetingname%></td>
                           <td></td>
                       </tr>
                       <tr>
@@ -254,6 +262,7 @@ var conn = mysql.createConnection({
           
               </body>
           </html>`);
+        
           console.log('Wrote to ./views/test3.ejs');
           
           
